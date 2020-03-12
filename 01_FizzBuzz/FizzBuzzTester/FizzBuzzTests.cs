@@ -2,21 +2,26 @@ using NUnit.Framework;
 using System.Collections.Generic;
 using FizzBuzz;
 
-namespace FizzBuzzerTester
+namespace FizzBuzzTester
 {
     public class Tests
     {
-        [Test]
-        public void SimpleFizzSingleTest()
+        [SetUp]
+        public void Setup()
         {
-            List<int> numbers = new List<int>() { 3 };
-            List<string> expectedResults = new List<string>() { "Fizz" };
-            var actualResults = FizzBuzzer.MillNumbers(numbers);
-            Assert.AreEqual(expectedResults[0], actualResults[0]);
         }
 
         [Test]
-        public void SimpleBuzzTest()
+        public void SimpleFizzBuzzTest()
+        {
+            List<int> numbers = new List<int>() { 15 };
+            List<string> expectedResults = new List<string>() { "FizzBuzz" };
+            var actualResluts = FizzBuzzer.MillNumbers(numbers);
+            Assert.AreEqual(expectedResults[0], actualResluts[0]);
+        }
+
+        [Test]
+        public void BuzzTest()
         {
             List<int> numbers = new List<int>() { 1, 5, 10 };
             List<string> expectedResults = new List<string>() { "1", "Buzz", "Buzz" };
@@ -25,19 +30,10 @@ namespace FizzBuzzerTester
         }
 
         [Test]
-        public void SimpleFizzTest()
+        public void FizzTest()
         {
             List<int> numbers = new List<int>() { 3, 6, 9, 12 };
             List<string> expectedResults = new List<string>() { "Fizz", "Fizz", "Fizz", "Fizz" };
-            var actualResluts = FizzBuzzer.MillNumbers(numbers);
-            CollectionAssert.AreEqual(expectedResults, actualResluts);
-        }
-
-        [Test]
-        public void SimpleFizzBuzzTest()
-        {
-            List<int> numbers = new List<int>() { 1, 15 };
-            List<string> expectedResults = new List<string>() { "1", "FizzBuzz" };
             var actualResluts = FizzBuzzer.MillNumbers(numbers);
             CollectionAssert.AreEqual(expectedResults, actualResluts);
         }
